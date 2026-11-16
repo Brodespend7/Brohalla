@@ -25,11 +25,11 @@ Player() {
   void move(char dir) {
 if (dir == 'w' || dir == 'W') {
 y -= speed;
-}if else (dir == 's' || dir == 'S') {
+} else if (dir == 's' || dir == 'S') {
 y += speed;
-}if else(dir == 'a' || dir == 'A') {
+} else if (dir == 'a' || dir == 'A') {
 x -= speed;
-}if else(dir == 'd' || dir == 'D') {
+} else if (dir == 'd' || dir == 'D') {
 x += speed;
 }
   }
