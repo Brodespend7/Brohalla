@@ -24,13 +24,13 @@ Player() {
   void display() {}
   void move(char dir) {
 if (dir == 'w' || dir == 'W') {
-y -= speed;
+y = -y;
 } else if (dir == 's' || dir == 'S') {
-y += speed;
+y = +y;
 } else if (dir == 'a' || dir == 'A') {
-x -= speed;
+x = -x;
 } else if (dir == 'd' || dir == 'D') {
-x += speed;
+x = +x;
 }
   }
   void jump() {}
