@@ -23,6 +23,15 @@ Player() {
   
   void display() {}
   void move(char dir) {
+if (dir == 'w' || dir == 'W') {
+y -= speed;
+}if else (dir == 's' || dir == 'S') {
+y += speed;
+}if else(dir == 'a' || dir == 'A') {
+x -= speed;
+}if else(dir == 'd' || dir == 'D') {
+x += speed;
+}
   }
   void jump() {}
   void fire() {}
