@@ -12,7 +12,7 @@ boolean ground = false;
 boolean jump = false;
 
 void setup() {
-  size(1000,1000);
+  size(500,500);
   frameRate (100);
   p1 = new Player();
   p2 = new Player();
@@ -22,14 +22,11 @@ void draw() {
   background(127);
   p1.display();
   p2.display();
-  itemImg();
-  m1.display();
-  // 1. Apply gravity to vertical velocity
+  // gravity vertical
   if (ground == false) {
     velocityY += gravity;
   }
   velocityX += accelerationX;
-  //air resistence
 
   if (ground == true) {
     if (velocityX > 0 || velocityX < 0 ) {
@@ -43,7 +40,7 @@ void draw() {
       velocityX = velocityX/1.02;
     }
   }
-  // 2. Update vertical position by velocity
+  // the jumping ability
   y += velocityY;
   x += velocityX/10;
 
@@ -52,7 +49,7 @@ void draw() {
   }
 
 
-  // 3. Collision with the floor
+  // the collision factor with the ground
   if (y + radius > height-1) {
     ground = true;
   } else {
@@ -63,35 +60,27 @@ void draw() {
   if (ground) {
     jump = true;    // Snap to floor so it doesn't get stuck
   }
-
-  // Render the object
-  fill(50, 120, 240);
-  ellipse(x, y, radius * 2, radius * 2);
-}
-
   
 }
 
+  
+
+
 void keyPressed() {
+if (accelerationX < 1 || accelerationX < -1 ) {
 if (key == 'W' ||key == 'w' && jump == true) {
    velocityY = -10;
    jump = false;
    p1.move('W');
   }else if (key == 'S' ||key == 's') {
-    p1.move(S);
+    p1.move('S');
   }else if (key == 'A' ||key == 'a') {
-    p1.move(A); 
+    accelerationX = -4;
+    p1.move('A'); 
   }else if (key == 'D' ||key == 'd') {
-    p1.move(D);
+    accelerationX = 4;
+    p1.move('D');
   }
- if (keyCode == UP) {
-   p2.move('UP');
-  }else if (keyCode == DOWN) {
-   p2.move('DONW');
-  }else if (keyCode == LEFT) {
-   p2.move('LEFT');
-  }else if (keyCode == RIGHT) {
-   p2.move('RIGHT');
-  }
+}
 }
 // TODO: ad a pause/start key
