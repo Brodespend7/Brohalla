@@ -12,7 +12,7 @@ boolean ground = false;
 boolean jump = false;
 
 void setup() {
-  size(500,500);
+  size(displayWidth,displayHeight);
   frameRate (100);
   p1 = new Player();
   p2 = new Player();
